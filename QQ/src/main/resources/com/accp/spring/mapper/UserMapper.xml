@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "mybatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.spring.mapper.UserMapper">
+	<!-- 注册 -->
+	<insert id="InserUser">
+		INSERT INTO `user` (`userName`,`password`,`nickName`,`createTime`) 
+		VALUES(#{userName},#{password},#{nickName},NOW())
+	</insert>
+	<!-- 登录 -->
+	<select id="selectUser" resultType="User">
+		SELECT * FROM `user` WHERE userName=#{userName} AND `password`=#{password}
+	</select>
+	<!-- 查询好友  模糊查询  -->
+	<select id="cxuserName" resultType="java.util.Map">
+		select `userId`,`userName`,`nickName` from `user` WHERE  `userName` like '%${userName}%'
+	</select>
+	<!-- 添加好友 -->
+	<insert id="insertFriendapply">
+		insert into `friendapply`(`remark`,`applyuserId`,`pasvuserId`,`isOk`,`applyTime`,`groupId`,`beizhuName`)
+		value('00',#{applyuserId},#{pasvuserId},0,now(),1,'000')
+	</insert>
+	<!-- 显示好友发送等信息 待验证-->
+	<select id="selectFriendApply_1" resultType="FriendApply">
+		SELECT * FROM `friendapply` WHERE `applyuserId` = #{applyuserId} and `isOk`= 0
+	</select>
+	<!-- 显示别人给我发送的好友请求   是否同意-->
+	<select id="selectFriendApply_2" resultType="FriendApply">
+		SELECT * FROM `friendapply` WHERE `pasvuserId` = #{pasvuserId} and `isOk`= 0
+	</select>
+	<!-- 互相的好友请求已同意-->
+	<select id="selectFriendApply_3" resultType="FriendApply">
+		SELECT * FROM `friendapply` WHERE `isOk` = 1  AND (`applyuserId` = #{userName_1} OR `pasvuserId` = #{userName_2}) 
+	</select>
+	<!-- 互相的好友请求已拒绝-->
+	<select id="selectFriendApply_4" resultType="FriendApply">
+		SELECT * FROM `friendapply` WHERE `isOk` = 2  AND (`applyuserId` = #{userName_1} OR `pasvuserId` = #{userName_2}) 
+	</select>
+	<!-- 清空通知 -->
+	<delete id="deleteFriendApply">
+		DELETE FROM friendapply where `applyuserId` = #{applyuserId}
+	</delete>
+	<!-- 同意好友请求 -->
+	<update id="updateFriendApply">
+		UPDATE `friendapply`SET `isOk`=1 WHERE `applyId` = #{applyId};
+	</update>
+	<!-- 拒绝好友请求 -->
+	<update id="updateFriendApply_2">
+		UPDATE `friendapply`SET `isOk`=2 WHERE `applyId` = #{applyId};
+	</update>
+	<!-- 显示所有好友列表 -->
+	<select id="selectGrouping" resultType="Grouping">
+		SELECT * FROM Grouping WHERE `userId` = #{userId}
+	</select>
+	<!-- 添加好友分组 -->
+	<insert id="insertGrouping">
+		insert into Grouping (`groupingName`,`userId`) values(#{groupingName},#{userId})
+	</insert>
+	<!-- 显示所有自己空间发的说说 -->
+	<select id="selectDynamicstate" resultType="Dynamicstate">
+		SELECT * FROM `dynamicstate`
+		<!--  WHERE spaceId = #{userId} -->
+	</select>
+	<!-- 发一条说说 -->
+	<insert id="insertDynamicstate">
+		INSERT INTO DynamicState (`spaceId`,`stateText`,`stateTime`,`readed`) 
+		VALUES(#{userId},#{stateText},now(),'妞妞')
+	</insert>
+	<!-- 点赞 -->
+	<insert id="insertPraiseRecord">
+		insert into PraiseRecord (`stateId`,`userid`,`praiseTime`) 
+		values(#{stateId},#{userId},now())
+	</insert>
+	<!-- 显示每个说说点赞的人 -->
+	<select id="selectPraiseRecord" resultType="PraiseRecord">
+		select userid from praiserecord where stateId = #{stateId}
+	</select>
+	<!-- 显示所有评论 -->
+	<select id="selectComment" resultType="Comment">
+		select * from  `comment` where `stateId` = #{stateId}
+	</select>
+	<!-- 评论说说 -->
+	<insert id="insertComment">
+		INSERT INTO `comment` (`stateId`,`commentText`,`userId`,`commentTime`)
+		VALUES(#{stateId},#{commentText},#{userId},NOW())
+	</insert>
+	<!-- <select id="selectPasvuserId" resultType="FriendApply">
+		select `applyId`,pasvuserId from FriendApply where applyuserId = #{userId} and `isOk`=1
+	</select> -->
+</mapper>

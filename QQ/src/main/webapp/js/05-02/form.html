@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<br />
+  	<br />
+  	<br />
+    <form class="form-inline">
+		  <div class="form-group">
+		    <label for="name">Name</label>
+		    <input type="text" class="form-control" id="name" placeholder="Jane Doe">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputEmail2">Email</label>
+		    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+		  </div>
+		  <button type="submit" class="btn btn-default">Send invitation</button>
+		</form>
+<hr />
+		<div class="container">
+			<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+    <div class="col-sm-9">
+      <input type="email" class="form-control input-lg" id="inputEmail3" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control input-sm" id="inputPassword3" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" onclick="return checkForm()" class="btn btn-default">登录</button>
+    </div>
+  </div>
+</form>
+
+<hr />
+	<button class="btn btn-default">登录</button>
+	<button class="btn btn-danger btn-lg">登录</button>
+	<button class="btn btn-success">登录</button>
+	<button class="btn btn-primary btn-sm">登录</button>
+	<button class="btn btn-warning">登录</button>
+	<button class="btn btn-link">登录</button>
+	<button class="btn btn-block btn-primary">登录</button>
+	
+	
+	<hr />
+	<img src="../../img/2.jpg" class="img-circle"/>
+	<img src="../../img/2.jpg" class="img-thumbnail"/>
+	<img src="../../img/2.jpg" class="img-rounded"/>
+	<div class="row">
+		<div class="col-xs-1">
+			<img src="../../img/1.jpg" class="img-responsive"/>
+		</div>
+	</div>
+		</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	function checkForm(){
+    		var v = $("#inputEmail3").val();
+    		if(v==""){
+    			$("#inputEmail3").closest(".form-group").addClass("has-error");
+    			return false;
+    		}
+    			
+    	}
+    </script>
+  </body>
+</html>

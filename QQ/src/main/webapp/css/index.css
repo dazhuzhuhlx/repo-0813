@@ -1,0 +1,167 @@
+body{
+	margin: auto; 
+	width:75%;
+	background: #F6F6F6;
+}
+.menu-1{
+	border-bottom: 1px solid blue;
+	margin: 0px;
+	background:white;
+	line-height: 25px;
+}
+.logo{
+	height:120px; 
+	background:white;
+	padding-top:4%;
+	padding-left:8%;
+}
+.menu-box{
+	margin: auto;
+	height:35px;
+	background: #1F6DC2;
+ 	margin-top:-1%;
+	padding-left:15%;
+	
+}
+.menu-box li{  
+	font-size:15px;
+	color:white;
+	text-align: center;
+	width:164px; 
+	line-height:34px;
+	font-weight: bold; 
+}
+.col-lg-1-1{
+	background: #13467D;
+}
+.order-box{
+	
+	background: #E8E8E8;
+	height:35px;
+	line-height:32px;
+	padding-left:12%;
+}
+.order-box li{
+	width:150px; 
+	text-align: center;
+}
+.order-z{
+	border-bottom:3px solid blue;
+}
+.button-3-box{
+	height:360px;  
+	background: white;
+}
+.button-3-box li{
+	text-align: center;
+	width:330px;
+	margin-top:53px;
+}
+.button-3-box li{
+	line-height:27px;
+}
+.p-1{ 
+	font-size:18px; 
+	font-weight: bold;
+	font-family: "微软雅黑";
+}
+.p-2{ 
+	color:#969696;
+}
+.p-3{
+	width:102px;
+	height:32px;
+	background: #1f6dc2;
+	border-radius: 15px;
+	margin: auto;
+	line-height:32px;
+	color:white;
+	cursor: pointer;
+}
+.img-box{ 
+	background: #f0f5f8; 
+	height: 550px;
+}
+.img-box-1{
+	margin: auto;
+	margin-left:8%;
+}
+.img-box select{
+	height:26px;
+}
+.time-fen{
+	line-height: 75px;
+}
+.time-select{
+	padding-top: 30px;
+}
+.button-radius{
+	background:white;
+	padding-top:35px;
+	   
+}
+.button-radius-f{
+	margin-left:60px;
+	display: flex;
+}
+.sx{
+	margin-left:10%;
+	padding-top:3%;
+}
+.button-145{ 
+	background: #1f6dc2;
+	width:145px;
+	height:45px;
+	line-height:45px;
+	border-radius: 22px;
+	color:white;
+	position: relative;
+	left:40px;
+	text-align: center;
+	z-index:16;
+	cursor: pointer;
+}
+.button-190{
+	background: #ddd;
+	width:190px;
+	height:45px;
+	line-height:45px; 
+	border-radius: 22px;
+	text-align: center;
+ 	z-index:8;
+ 	cursor: pointer;
+}
+.button-190-2{
+	background: #ececec;
+	width:190px;
+	height:45px;
+	line-height:45px;
+	border-radius: 22px;
+	text-align: center;
+	position:relative;
+	left:-40px;
+	cursor: pointer;
+}
+table{
+	border:1px solid black;
+}
+ .ul-li-tr{  
+ 	margin: auto;
+ 	width:80%; 
+ 	padding-top:3%;
+ }
+ .ul-li-tr td{ 
+ 	border:1px solid black;
+ 	border-width: 0px 1px 0px 1px;
+ 	text-align: center;
+ 	height:56px;
+ 	line-height: 56px;
+ }
+.page-li{
+	margin-left:16px;
+	margin-top:1%;
+}
+.copy{
+	padding-top:3%;
+	text-align: center;
+}
